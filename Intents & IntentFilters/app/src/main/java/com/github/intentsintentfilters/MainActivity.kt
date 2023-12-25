@@ -45,7 +45,16 @@ class MainActivity : ComponentActivity() {
                              */
 
                             // Implicit Intents
+                            val intent = Intent(Intent.ACTION_SEND).apply {
+                                type = "text/plain"
+                                putExtra(Intent.EXTRA_EMAIL, arrayOf("hello.mehedi@outlook.com"))
+                                putExtra(Intent.EXTRA_SUBJECT, "Subject of the mail")
+                                putExtra(Intent.EXTRA_TEXT, "This is the body of the mail")
+                            }
 
+                            if (intent.resolveActivity(packageManager) != null){
+                                startActivity(intent)
+                            }
                         }
                     ) {
                         Text(text = "Click me")
