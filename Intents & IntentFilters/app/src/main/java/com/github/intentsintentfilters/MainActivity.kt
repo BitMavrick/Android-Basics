@@ -1,5 +1,6 @@
 package com.github.intentsintentfilters
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,9 +26,26 @@ class MainActivity : ComponentActivity() {
                 ){
                     Button(
                         onClick = {
+                            // These are explicit intents
+                            /*
                             Intent(applicationContext, SecondActivity::class.java).also {
                                 startActivity(it)
                             }
+                            */
+                            /*
+                            Intent(Intent.ACTION_MAIN).also {
+                                it.`package` = "com.google.android.youtube" // Apps package name
+
+                                try{
+                                    startActivity(it)
+                                } catch ( e: ActivityNotFoundException) {
+                                    e.printStackTrace()
+                                }
+                            }
+                             */
+
+                            // Implicit Intents
+
                         }
                     ) {
                         Text(text = "Click me")
