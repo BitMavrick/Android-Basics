@@ -20,9 +20,7 @@ class RunningService: Service() {
     }
 
     private fun start(){
-
-
-
+        // Video duration: 5:37
     }
 
     enum class Actions {
