@@ -15,7 +15,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.WorkManager">
+            android:theme="@style/Theme.WorkManager"
+            android:launchMode="singleTop">
+<!--        This (SingleTop) trigger the intent function-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
