@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <service android:name=".RunningService"/>
+<!--  For media playback:<service android:name=".RunningService" android:foregroundServiceType="mediaPlayback"/>-->
     </application>
 
 </manifest>
