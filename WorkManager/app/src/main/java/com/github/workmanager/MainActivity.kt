@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -20,6 +21,7 @@ import com.github.workmanager.ui.theme.WorkManagerTheme
 class MainActivity : ComponentActivity() {
 
     private lateinit var workManager: WorkManager
+    private val viewmodel by viewModels<PhotoViewModel> ()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,5 +63,5 @@ class MainActivity : ComponentActivity() {
         workManager.enqueue(request)
     }
 
-    // Continue from 24:25
+    // Continue from 26:32
 }
