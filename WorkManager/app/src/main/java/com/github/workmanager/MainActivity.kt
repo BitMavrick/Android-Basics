@@ -16,6 +16,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.github.workmanager.ui.theme.WorkManagerTheme
 
+@Suppress("DEPRECATION")
 class MainActivity : ComponentActivity() {
 
     private lateinit var workManager: WorkManager
