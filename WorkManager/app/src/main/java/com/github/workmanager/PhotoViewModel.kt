@@ -16,7 +16,7 @@ class PhotoViewModel: ViewModel() {
     var workId: UUID? by mutableStateOf(null)
         private set
 
-    fun updateCompressedUri(uri: Uri?){
+    fun updateUncompressedUri(uri: Uri?){
         uncompressedUri = uri
     }
 

@@ -70,4 +70,7 @@ dependencies {
     // -> For the work_manager module (as mini project)
     implementation("androidx.work:work-runtime-ktx:2.9.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // -> Live data
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 }
