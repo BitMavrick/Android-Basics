@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +19,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import androidx.work.Constraints
 import androidx.work.OneTimeWorkRequestBuilder
@@ -68,7 +70,10 @@ class MainActivity : ComponentActivity() {
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // viewmodel.compressedBitmap
+                    viewmodel.compressedBitmap?.let{
+                        Text(text = "Uncompressed Photo:")
+                        Image(bitmap = it.asImageBitmap(), contentDescription = null)
+                    }
                 }
             }
         }
@@ -91,14 +96,14 @@ class MainActivity : ComponentActivity() {
                     PhotoCompressionWorker.KEY_COMPRESSION_THRESHOLD to 1024 * 20L
                 )
             )
+
             .setConstraints( Constraints(
-                requiresStorageNotLow = true
+                requiresStorageNotLow = true // Remove this slot (setConstraints) if it not work
             ))
+
             .build()
 
         viewmodel.updateWorkId(request.id)
         workManager.enqueue(request)
     }
-
-    // Continue from 26:32
 }
